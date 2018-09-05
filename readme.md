@@ -18,4 +18,3 @@ todaysart festival 2018, Den Haag.
 	- setup `PATH`: add `export PATH=/usr/local/bin:/usr/local/sbin:$PATH` to `~/.profile` ([ref](http://docs.python-guide.org/en/latest/starting/install/osx/))
 	- install `python 2.7`: `brew install python`
 4. run `python` to test everything works as expected: `python`
-5. install `nltk`: `pip install nltk`

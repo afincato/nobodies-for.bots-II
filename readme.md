@@ -2,11 +2,16 @@ nobodies-for.bots-II
 ====================
 
 - [Intro](#intro)
+- [References](#references)
 - [Setup](#setup)
 
 ## Intro
 
 todaysart festival 2018, Den Haag.
+
+## References
+
+- [MUD](https://www.are.na/andre-fincato/mud)
 
 ## Setup
 

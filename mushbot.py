@@ -18,7 +18,7 @@ def main():
     """Run the bot."""
     global update_id
     # Telegram Bot Authorization Token
-    bot = telegram.Bot('661291112:AAENg9RXiAU2vfD9Za9oaAD_aTX0iWfomGg')
+    bot = telegram.Bot('token')
 
     # get the first pending update_id, this is so we can skip over it in case
     # we get an "Unauthorized" exception.

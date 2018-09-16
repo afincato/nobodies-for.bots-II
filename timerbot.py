@@ -30,12 +30,13 @@ logger = logging.getLogger(__name__)
 # Define a few command handlers. These usually take the two arguments bot and
 # update. Error handlers also receive the raised TelegramError object in error.
 def start(bot, update):
-    update.message.reply_text('When do you want to detonate the bomb? Use /set <seconds> to set a timer.')
+    update.message.reply_text('When do you want to detonate the bomb? Use /setbomb <seconds> to set a timer.')
 
 
 def alarm(bot, job):
     """Send the alarm message."""
-    bot.send_message(job.context, text='. . - ˗ˏˋ B O O M ˎˊ˗ - . .')
+    # bot.send_message(job.context, text='. . - ˗ˏˋ B O O M ˎˊ˗ - . .')
+    bot.send_document(job.context, document=open('explosion2.gif','rb'))
 
 
 def set_timer(bot, update, args, job_queue, chat_data):
@@ -52,10 +53,10 @@ def set_timer(bot, update, args, job_queue, chat_data):
         job = job_queue.run_once(alarm, due, context=chat_id)
         chat_data['job'] = job
 
-        update.message.reply_text('Timer successfully set.')
+        update.message.reply_text('Bomb successfully set.')
 
     except (IndexError, ValueError):
-        update.message.reply_text('Usage: /set <seconds>')
+        update.message.reply_text('Usage: /setbomb <seconds>')
 
 
 def unset(bot, update, chat_data):
@@ -86,7 +87,7 @@ def main():
     # on different commands - answer in Telegram
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("help", start))
-    dp.add_handler(CommandHandler("set", set_timer,
+    dp.add_handler(CommandHandler("setbomb", set_timer,
                                   pass_args=True,
                                   pass_job_queue=True,
                                   pass_chat_data=True))

@@ -13,6 +13,8 @@ Usage:
 Basic Alarm Bot example, sends a message after a set time.
 Press Ctrl-C on the command line or send a signal to the process to stop the
 bot.
+
+Original code from the python-telegram-bot library. Edited for the bot workshop http://todaysart.nl/2018/program/nobodies-for-bots/.
 """
 
 from telegram.ext import Updater, CommandHandler
@@ -28,12 +30,12 @@ logger = logging.getLogger(__name__)
 # Define a few command handlers. These usually take the two arguments bot and
 # update. Error handlers also receive the raised TelegramError object in error.
 def start(bot, update):
-    update.message.reply_text('Hi! Use /set <seconds> to set a timer')
+    update.message.reply_text('When do you want to detonate the bomb? Use /set <seconds> to set a timer.')
 
 
 def alarm(bot, job):
     """Send the alarm message."""
-    bot.send_message(job.context, text='Beep!')
+    bot.send_message(job.context, text='. . - ˗ˏˋ B O O M ˎˊ˗ - . .')
 
 
 def set_timer(bot, update, args, job_queue, chat_data):
@@ -50,7 +52,7 @@ def set_timer(bot, update, args, job_queue, chat_data):
         job = job_queue.run_once(alarm, due, context=chat_id)
         chat_data['job'] = job
 
-        update.message.reply_text('Timer successfully set!')
+        update.message.reply_text('Timer successfully set.')
 
     except (IndexError, ValueError):
         update.message.reply_text('Usage: /set <seconds>')
@@ -59,14 +61,14 @@ def set_timer(bot, update, args, job_queue, chat_data):
 def unset(bot, update, chat_data):
     """Remove the job if the user changed their mind."""
     if 'job' not in chat_data:
-        update.message.reply_text('You have no active timer')
+        update.message.reply_text('You have no active timer.')
         return
 
     job = chat_data['job']
     job.schedule_removal()
     del chat_data['job']
 
-    update.message.reply_text('Timer successfully unset!')
+    update.message.reply_text('Timer successfully unset.')
 
 
 def error(bot, update, error):
@@ -76,7 +78,7 @@ def error(bot, update, error):
 
 def main():
     """Run bot."""
-    updater = Updater("token")
+    updater = Updater("TOKEN")
 
     # Get the dispatcher to register handlers
     dp = updater.dispatcher

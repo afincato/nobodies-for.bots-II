@@ -50,7 +50,8 @@ def echo(bot):
             # Reply to the message
             # update.message.reply_text(update.message.text)
             print(update.message.text)
-            words = update.message.text.split(' ')
+            if not update.message.text == None: 
+                words = update.message.text.split(' ')
             if "ping" in words:
                 update.message.reply_text("pong")
 

@@ -4,6 +4,7 @@
 This is built on the API wrapper, see echobot2.py to see the same example built
 on the telegram.ext bot framework.
 This program is dedicated to the public domain under the CC0 license.
+Code modified for the bot workshop http://todaysart.nl/2018/program/nobodies-for-bots/ .
 """
 import random
 import logging
@@ -41,8 +42,8 @@ def main():
 
 vocabulary = {
     'ping': ['pong', 'wow', 'pow','boom']
-    'hello': ['hello'],
-    'how was last night?': ['😈🤪😍']
+    'hello': ['hello','hey stranger', 'nice to see you around here'],
+    'how was last night?': ['😈🤪😍', 'i watched a movie at the cinema']
 }
 
 def echo(bot, vocabulary):

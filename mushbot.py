@@ -5,6 +5,7 @@ This is built on the API wrapper, see echobot2.py to see the same example built
 on the telegram.ext bot framework.
 This program is dedicated to the public domain under the CC0 license.
 """
+import random
 import logging
 import telegram
 from telegram.error import NetworkError, Unauthorized
@@ -31,20 +32,20 @@ def main():
 
     while True:
         try:
-            echo(bot, ellen)
+            echo(bot, vocab)
         except NetworkError:
             sleep(1)
         except Unauthorized:
             # The user has removed or blocked the bot.
             update_id += 1
 
-ellen = {
-    'ping': 'pong',
-    'pane': 'vino',
-    'how was last night?': '😈🤪😍'
+vocab = {
+    'ping': ['pong', 'wow', 'pow','boom']
+    'hello': ['hello'],
+    'how was last night?': ['😈🤪😍']
 }
 
-def echo(bot, ellen):
+def echo(bot, vocab):
     """Echo the message the user sent."""
     global update_id
     # Request updates after the last update_id
@@ -55,12 +56,12 @@ def echo(bot, ellen):
             # Reply to the message
             # update.message.reply_text(update.message.text)
             print(update.message.text)
-            for key, value in ellen.items():
+            for key, value in vocab.items():
                 if not update.message.text == None:
                     words = update.message.text.split(' ')
-                if key in words or key in update.message.text:
-                    update.message.reply_text(value)
-                    print('✨ ' + value)
+                    if key in words or key in update.message.text:
+                        update.message.reply_text(random.choice(value))
+                        print('✨ ' + value)
 
 if __name__ == '__main__':
     main()

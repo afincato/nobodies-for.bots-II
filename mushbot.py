@@ -31,15 +31,20 @@ def main():
 
     while True:
         try:
-            echo(bot)
+            echo(bot, ellen)
         except NetworkError:
             sleep(1)
         except Unauthorized:
             # The user has removed or blocked the bot.
             update_id += 1
 
+ellen = {
+    'ping': 'pong',
+    'pane': 'vino',
+    'how was last night?': '😈🤪😍'
+}
 
-def echo(bot):
+def echo(bot, ellen):
     """Echo the message the user sent."""
     global update_id
     # Request updates after the last update_id
@@ -50,9 +55,12 @@ def echo(bot):
             # Reply to the message
             # update.message.reply_text(update.message.text)
             print(update.message.text)
-            words = update.message.text.split(' ')
-            if "ping" in words:
-                update.message.reply_text("pong")
+            for key, value in ellen.items():
+                if not update.message.text == None:
+                    words = update.message.text.split(' ')
+                if key in words or key in update.message.text:
+                    update.message.reply_text(value)
+                    print('✨ ' + value)
 
 
 if __name__ == '__main__':

@@ -32,20 +32,20 @@ def main():
 
     while True:
         try:
-            echo(bot, vocab)
+            echo(bot, vocabulary)
         except NetworkError:
             sleep(1)
         except Unauthorized:
             # The user has removed or blocked the bot.
             update_id += 1
 
-vocab = {
+vocabulary = {
     'ping': ['pong', 'wow', 'pow','boom']
     'hello': ['hello'],
     'how was last night?': ['😈🤪😍']
 }
 
-def echo(bot, vocab):
+def echo(bot, vocabulary):
     """Echo the message the user sent."""
     global update_id
     # Request updates after the last update_id
@@ -56,7 +56,7 @@ def echo(bot, vocab):
             # Reply to the message
             # update.message.reply_text(update.message.text)
             print(update.message.text)
-            for key, value in vocab.items():
+            for key, value in vocabulary.items():
                 if not update.message.text == None:
                     words = update.message.text.split(' ')
                     if key in words or key in update.message.text:

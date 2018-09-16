@@ -62,6 +62,5 @@ def echo(bot, ellen):
                     update.message.reply_text(value)
                     print('✨ ' + value)
 
-
 if __name__ == '__main__':
     main()

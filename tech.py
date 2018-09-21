@@ -51,7 +51,7 @@ def error(bot, update, error):
 
 def main():
     # Create the Updater and pass it your bot's token.
-    updater = Updater("TOKEN")
+    updater = Updater('token')
 
     updater.dispatcher.add_handler(CommandHandler('tech', tech))
     updater.dispatcher.add_handler(CallbackQueryHandler(button))

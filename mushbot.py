@@ -12,9 +12,7 @@ import telegram
 from telegram.error import NetworkError, Unauthorized
 from time import sleep
 
-
 update_id = None
-
 
 def main():
     """Run the bot."""
@@ -43,6 +41,8 @@ def main():
             update_id += 1
 
 vocabulary = {
+    'name': ['olia'],
+    'about': ["sure, i'm part of the mothers mothers unit, etc etc; my sis comes from 🐚 and..."],
     'ping': ['pong', 'wow', 'pow','boom'],
     'hello': ['hello','hey stranger', 'nice to see you around here'],
     'how was last night?': ['😈🤪😍', 'i watched a movie at the cinema']
@@ -64,7 +64,6 @@ def echo(bot, vocabulary):
                     words = update.message.text.split(' ')
                     if key in words or key in update.message.text:
                         update.message.reply_text(random.choice(value))
-                        print('✨ ' + value)
 
 if __name__ == '__main__':
     main()

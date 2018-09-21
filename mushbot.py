@@ -30,6 +30,7 @@ def main():
         update_id = None
 
     logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    print('⚡️ working')
 
     while True:
         try:

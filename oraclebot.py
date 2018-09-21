@@ -33,6 +33,7 @@ def error(bot, update, error):
 def main():
     """Run bot."""
     updater = Updater("TOKEN")
+    print('⚡️ working')
 
     # Get the dispatcher to register handlers
     dp = updater.dispatcher

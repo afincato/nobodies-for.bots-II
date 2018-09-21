@@ -43,7 +43,7 @@ def main():
             update_id += 1
 
 vocabulary = {
-    'ping': ['pong', 'wow', 'pow','boom']
+    'ping': ['pong', 'wow', 'pow','boom'],
     'hello': ['hello','hey stranger', 'nice to see you around here'],
     'how was last night?': ['😈🤪😍', 'i watched a movie at the cinema']
 }

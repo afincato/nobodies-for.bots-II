@@ -17,7 +17,9 @@ def tech(bot, update):
                  InlineKeyboardButton("Option 2", callback_data='2')],
 
                 [InlineKeyboardButton("Option 3", callback_data='3'),
-                 InlineKeyboardButton("Option 4", callback_data='4')]]
+                 InlineKeyboardButton("Option 4", callback_data='4')],
+
+                [InlineKeyboardButton("Option 5", callback_data='5')]]
 
     reply_markup = InlineKeyboardMarkup(keyboard)
 
@@ -25,16 +27,17 @@ def tech(bot, update):
     update.message.reply_text('Please choose:', reply_markup=reply_markup)
 
 descr = [
-    '1. tech bees 🐝\nthis technology is built upon x-y-z, and can be used for these occasions — etc etc',
-    '2. tech peas 🥜\nthis technology is built upon x-y-z, and can be used for these occasions — etc etc',
-    '3. tech miso 🍜\nthis technology is built upon x-y-z, and can be used for these occasions — etc etc',
-    '4. tech holo 🕳\nthis technology is built upon x-y-z, and can be used for these occasions — etc etc',
+    "Gravity shifter:\nclicker that permits seasonal shifts of gravitational pull (instead of down, sideways, or slightly off, etc.) known to alter migration of birds, seeds, helps for agricultural diversity and love matches. Pull can cause unforeseen effects other communities' order.",
+    "Roving bubble:\nthis vehicle is the ultimate protection bubble that permits any entity to travel within its small parameters - it floats and cannot be penetrated and is completely clear so inside and outside you see through completely, no weapon can destruct it and despite any things that would keep an entity stuck it adapts to serve that need (ie underwater only creatures can travel in this).  other entites are able to see you and you cannot leave the bubble until you are back at your starting point. good for spying, greeting.",
+    "Compigestian:\ndigest any waste product as food and/or energy.",
+    "Supermaterial:\nincredibly thin nearly invisible material that can be used to cover any sized object or land and make it weightless and transportable for up to 2 hours.",
+    "Velocimeter:\nallows the wearer to travel at the fastest speed known in the universe-the wearer can travel through the galaxy to find other tools or species to meet, dominate, befriend, multiply with, etc."
 ]
 
 def button(bot, update):
     query = update.callback_query
 
-    bot.edit_message_text(text="Selected option: {}\n".format(query.data) + descr[int(query.data) -1],
+    bot.edit_message_text(text="Selected option: {}\n\n".format(query.data) + descr[int(query.data) -1],
                           chat_id=query.message.chat_id,
                           message_id=query.message.message_id)
 

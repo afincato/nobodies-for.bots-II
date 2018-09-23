@@ -19,7 +19,7 @@ def main():
     global update_id
 
     # Telegram Bot Authorization Token
-    bot = telegram.Bot("token")
+    bot = telegram.Bot("")
 
     # get the first pending update_id, this is so we can skip over it in case
     # we get an "Unauthorized" exception.
@@ -41,8 +41,11 @@ def main():
             update_id += 1
 
 vocabulary = {
-    'describe yourself mushbot': "<something something>",
-    '@multiusertestbot': "text about randomly chosen next player"
+    'agent': ["I'm an agent from Mothers Mothers. I help with the business our unit, together with Vaachi and Moops I trade Mothers and other fungi. What have you to offer for us?"],
+    'money': ["I've got something to trade"],
+    'deal': ["What do you have to offer?"],
+    'trade': ["That's not good enough!", "I'm a consistent genius"],
+    "something to trade?": ["Excellent!"]
 }
 
 convo = []
@@ -72,10 +75,9 @@ def echo(bot, vocabulary, convo):
 
             for key, value in vocabulary.items():
                 if not update.message.text == None:
-                    #"hi there what up" => ['hi', 'there', 'what', 'up']
                     words = update.message.text.split(' ')
                     if key in words or key in update.message.text:
-                        update.message.reply_text(value)
+                        update.message.reply_text(random.choice(value))
 
 if __name__ == '__main__':
     main()

@@ -19,7 +19,7 @@ def main():
     global update_id
 
     # Telegram Bot Authorization Token
-    bot = telegram.Bot("token")
+    bot = telegram.Bot("")
 
     # get the first pending update_id, this is so we can skip over it in case
     # we get an "Unauthorized" exception.
@@ -41,7 +41,7 @@ def main():
             update_id += 1
 
 vocabulary = {
-    'describe yourself mushbot': "<something something>",
+    'I': "Hi, my name is Echo. I care deeply about everyone in my unit, especially my two mates who I am here with - Basil and Fifi. I have a special skill of being able to read other agent’s inner desires. I never gossip, nor am I an oracle, I try to be a sort of guardian of the needs I perceive of the agents who I am around. I need to be in some sort of proximity to those agents to be able to read their inner needs. I am not bitter towards those who have tried to use me for evil, which has been many, but try to encourage the inner resolution of the thing that is causing their evil. In this sense, I have a calming presence on everyone around me. A long long time ago, I had an ancestor called PARO the affective seal.",
     '@multiusertestbot': "text about randomly chosen next player"
 }
 
